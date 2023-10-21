@@ -1,2 +1,2 @@
 # ds-delivery
-Study Product
+Study Project
