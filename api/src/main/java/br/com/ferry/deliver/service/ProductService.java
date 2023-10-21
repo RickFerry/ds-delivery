@@ -18,6 +18,7 @@ public class ProductService {
 
     @Transactional(readOnly = true)
     public List<ProductDto> findAll() {
-        return productRepository.findAllByNameNotNullOrderByNameAsc().stream().map(ProductDto::new).collect(Collectors.toList());
+        return productRepository.findAllByNameNotNullOrderByNameAsc().stream()
+                .map(ProductDto::new).collect(Collectors.toList());
     }
 }

@@ -1,22 +1,22 @@
 package br.com.ferry.deliver.model;
 
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 
-@Entity
-@Builder
-@Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "products")
+@Entity @Builder @Getter @Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    Long id;
 
-    private String name;
-    private Double price;
-    private String description;
-    private String imageUri;
+    String name;
+    Double price;
+    String description;
+    String imageUri;
 }

@@ -8,8 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.websocket.server.PathParam;
-import java.net.URI;
 import java.util.List;
 
 /**
@@ -31,13 +29,13 @@ public class OrderController {
      * @return list
      */
     @GetMapping
-    public ResponseEntity<List<OrderDto>> findAll(){
-        return  ResponseEntity.ok(orderService.findAll());
+    public ResponseEntity<List<OrderDto>> findAll() {
+        return ResponseEntity.ok(orderService.findAll());
     }
 
     @PostMapping
-    public  ResponseEntity<OrderDto> create(@RequestBody OrderDto order,
-                                            @NotNull UriComponentsBuilder uriComponentsBuilder){
+    public ResponseEntity<OrderDto> create(@RequestBody OrderDto order,
+                                           @NotNull UriComponentsBuilder uriComponentsBuilder) {
         return ResponseEntity
                 .created(uriComponentsBuilder.path("/orders/{id}").buildAndExpand(orderService.create(order).getId())
                         .toUri()).body(orderService.create(order));
